@@ -11,17 +11,24 @@ import java.lang.reflect.Type;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class MainActivity extends AppCompatActivity {
-    private static final String TAG = MainActivity.class.getSimpleName();
-    private Button mFindTeamButton;
-    private TextView mAppNameTextView;
+    @BindView(R.id.findTeamButton)Button mFindTeamButton;
+    @BindView(R.id.appNameTextView) EditText mAppNameTextView;
+    @BindView(R.id.teamTextView) TextView mTeamTextView;
+//    private static final String TAG = MainActivity.class.getSimpleName();
+//    private Button mFindTeamButton;
+//    private TextView mAppNameTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mAppNameTextView = findViewById(R.id.appNameTextView);
-        mFindTeamButton = (Button)findViewById(R.id.findTeamButton);
+        ButterKnife.bind(this);
+//        mAppNameTextView = findViewById(R.id.appNameTextView);
+//        mFindTeamButton = (Button)findViewById(R.id.findTeamButton);
         mFindTeamButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
