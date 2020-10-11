@@ -47,7 +47,7 @@ public class TeamsActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String teams = intent.getStringExtra("teams");
-        mTeamListView.setText("Teams: " + teams);
+        mTeamListView.setText("Pick your favourite team " + teams);
 
     }
 }
