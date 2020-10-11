@@ -11,11 +11,16 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class TeamsActivity extends AppCompatActivity {
-    private TextView mTeamListView;
+    @BindView(R.id.teamTextView) TextView mTeamListView;
+    @BindView(R.id.listView) ListView mListView;
+//    private TextView mTeamListView;
     private String[] teams = new String[] {"Arsenal", "Chelsea", "Tottenham", "Liverpool","Everton", "Leeds", "Aston Villa", "Burnley",
     "New Castle", "Manchester City", "Manchester United"};
-    private ListView mListView;
+//    private ListView mListView;
 
 
 
@@ -23,9 +28,10 @@ public class TeamsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teams);
+        ButterKnife.bind(this);
 
-        mListView = (ListView) findViewById(R.id.listView);
-        mTeamListView = (TextView) findViewById(R.id.teamTextView);
+//        mListView = (ListView) findViewById(R.id.listView);
+//        mTeamListView = (TextView) findViewById(R.id.teamTextView);
 
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, teams);
         mListView.setAdapter(adapter);
