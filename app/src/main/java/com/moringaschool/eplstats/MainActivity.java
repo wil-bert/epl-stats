@@ -16,8 +16,8 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
     @BindView(R.id.findTeamButton)Button mFindTeamButton;
-    @BindView(R.id.appNameTextView) EditText mAppNameTextView;
-    @BindView(R.id.teamTextView) TextView mTeamTextView;
+//    @BindView(R.id.appNameTextView) EditText mAppNameTextView;
+    @BindView(R.id.appNameTextView) TextView mTeamTextView;
 //    private static final String TAG = MainActivity.class.getSimpleName();
 //    private Button mFindTeamButton;
 //    private TextView mAppNameTextView;
