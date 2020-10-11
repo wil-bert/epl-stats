@@ -14,7 +14,7 @@ import android.widget.Toast;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     @BindView(R.id.findTeamButton)Button mFindTeamButton;
 //    @BindView(R.id.appNameTextView) EditText mAppNameTextView;
     @BindView(R.id.appNameTextView) TextView mTeamTextView;
@@ -29,7 +29,9 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 //        mAppNameTextView = findViewById(R.id.appNameTextView);
 //        mFindTeamButton = (Button)findViewById(R.id.findTeamButton);
-        mFindTeamButton.setOnClickListener(new View.OnClickListener() {
+        mFindTeamButton.setOnClickListener(this);
+        }
+
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, TeamsActivity.class);
@@ -37,6 +39,4 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("team", team);
                 startActivity(intent);
             }
-        });
     }
-}
