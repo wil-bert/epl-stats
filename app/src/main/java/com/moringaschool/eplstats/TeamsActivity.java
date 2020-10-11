@@ -19,7 +19,7 @@ public class TeamsActivity extends AppCompatActivity {
     @BindView(R.id.listView) ListView mListView;
 //    private TextView mTeamListView;
     private String[] teams = new String[] {"Arsenal", "Chelsea", "Tottenham", "Liverpool","Everton", "Leeds", "Aston Villa", "Burnley",
-    "New Castle", "Manchester City", "Manchester United"};
+    "New Castle", "Manchester City", "Manchester United", "West Ham", "Southermpton", "Crystal Palace", "Wolves", "Brighton", "Full Ham", "West Brom"};
 //    private ListView mListView;
 
 
