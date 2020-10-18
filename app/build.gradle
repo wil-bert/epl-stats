@@ -22,7 +22,7 @@ android {
     }
 
     buildTypes.each {
-        it.buildConfigField 'String', 'RAPID_API_KEY', RapidApiKey
+        it.buildConfigField 'String', 'FOOTBALL_API_KEY', FootballApiKey
     }
 }
 
