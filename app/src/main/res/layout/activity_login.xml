@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#E4C31F57"
-    tools:context="com.moringaschool.eplstats.LoginActivity">
+    tools:context="com.moringaschool.eplstats.ui.LoginActivity">
 
     <EditText
         android:id="@+id/editTextTextEmailAddress"

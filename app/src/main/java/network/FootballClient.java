@@ -1,4 +1,6 @@
-package com.moringaschool.eplstats;
+package network;
+
+import com.moringaschool.eplstats.BuildConfig;
 
 import java.io.IOException;
 

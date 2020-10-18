@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.moringaschool.eplstats.MainActivity">
+    tools:context="com.moringaschool.eplstats.ui.MainActivity">
 
     <ImageView
         android:id="@+id/image"

@@ -1,18 +1,21 @@
-package com.moringaschool.eplstats;
+package ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.icu.util.ULocale;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.List;
+import models.ChooseTeamResponse;
+import network.FootballApi;
+import network.FootballClient;
+import com.moringaschool.eplstats.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -22,6 +25,10 @@ import retrofit2.Response;
 
 public class TeamsActivity extends AppCompatActivity {
     private static final String TAG = TeamsActivity.class.getSimpleName();
+
+
+    @BindView(R.id.errorTextView) TextView mErrorTextView;
+    @BindView(R.id.progressBar) ProgressBar mProgressBar;
     @BindView(R.id.teamTextView) TextView mTeamListView;
     @BindView(R.id.listView) ListView mListView;
 //    private TextView mTeamListView;
@@ -76,6 +83,8 @@ public class TeamsActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<ChooseTeamResponse> call, Throwable t) {
+                hideProgressBar();
+                showFailureMessage();
 
             }
         });
@@ -95,7 +104,7 @@ public class TeamsActivity extends AppCompatActivity {
 
     private void showRestaurants() {
         mListView.setVisibility(View.VISIBLE);
-        mLocationTextView.setVisibility(View.VISIBLE);
+        mTeamListView.setVisibility(View.VISIBLE);
     }
 
     private void hideProgressBar() {

@@ -1,8 +1,10 @@
 
-package com.moringaschool.eplstats;
+package models;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+
+import models.Area;
 
 public class ChooseTeamResponse {
 

@@ -1,4 +1,7 @@
-package com.moringaschool.eplstats;
+package network;
+
+import models.ChooseTeamResponse;
+import models.FootballSearchResponse;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
