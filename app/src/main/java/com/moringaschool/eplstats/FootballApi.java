@@ -10,4 +10,10 @@ public interface FootballApi {
             @Query("area") String area,
             @Query("name") String name
     );
+
+    @GET("team/")
+    Call<ChooseTeamResponse> getTeam(
+            @Query("area") String area,
+            @Query("name") String name
+    );
 }
