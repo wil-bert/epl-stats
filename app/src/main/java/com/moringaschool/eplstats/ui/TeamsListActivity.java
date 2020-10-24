@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -28,6 +30,8 @@ import retrofit2.Response;
 
 
 public class TeamsListActivity extends AppCompatActivity {
+    private SharedPreferences mSharedPreferences;
+
     private static final String TAG = TeamsListActivity.class.getSimpleName();
     public List<Competition_> competitions;
     @BindView(R.id.recyclerView) RecyclerView mRecyclerView;
@@ -41,11 +45,7 @@ public class TeamsListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_teams);
         ButterKnife.bind(this);
 
-
-//        Intent intent = getIntent();
-//
-//        final String team = intent.getStringExtra("teams");
-
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
 
         Call<ChooseCompetition> call = FootballClient.getClient().getCompetitions();
