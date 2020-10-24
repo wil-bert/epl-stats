@@ -1,4 +1,4 @@
-package ui;
+package com.moringaschool.eplstats.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if (v == mFindTeamButton) {
-            Intent intent = new Intent(MainActivity.this, TeamsActivity.class);
+            Intent intent = new Intent(MainActivity.this, TeamsListActivity.class);
             String team = mFindTeamButton.getText().toString();
             intent.putExtra("team", team);
             startActivity(intent);

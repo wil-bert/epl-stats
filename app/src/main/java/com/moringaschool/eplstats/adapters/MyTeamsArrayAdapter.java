@@ -1,27 +1,27 @@
-package com.moringaschool.eplstats;
+package com.moringaschool.eplstats.adapters;
 
 import android.content.Context;
 import android.widget.ArrayAdapter;
 
 public class MyTeamsArrayAdapter extends ArrayAdapter {
     private Context mContext;
-    private String[] mTeams;
+    private String[] mCompetitions;
 
-    public MyTeamsArrayAdapter(Context mContext, int resources, String[] mTeams) {
+    public MyTeamsArrayAdapter(Context mContext, int resources, String[] mCompetitions) {
         super(mContext, resources);
         this.mContext = mContext;
-        this.mTeams = mTeams;
+        this.mCompetitions = mCompetitions;
     }
 
     @Override
     public Object getItem(int position) {
-        String teams = mTeams[position];
+        String teams = mCompetitions[position];
         return String.format(teams);
 
     }
 
     @Override
     public int getCount() {
-        return mTeams.length;
+        return mCompetitions.length;
     }
 }

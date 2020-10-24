@@ -1,10 +1,13 @@
 
-package models;
+package com.moringaschool.eplstats.models;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class FootballSearchResponse {
+import org.parceler.Parcel;
+
+@Parcel
+public class Competition_ {
 
     @SerializedName("id")
     @Expose
@@ -35,7 +38,7 @@ public class FootballSearchResponse {
      * No args constructor for use in serialization
      * 
      */
-    public FootballSearchResponse() {
+    public Competition_() {
     }
 
     /**
@@ -49,7 +52,7 @@ public class FootballSearchResponse {
      * @param numberOfAvailableSeasons
      * @param plan
      */
-    public FootballSearchResponse(Integer id, Area area, String name, String code, String plan, CurrentSeason currentSeason, Integer numberOfAvailableSeasons, String lastUpdated) {
+    public Competition_(Integer id, Area area, String name, String code, String plan, CurrentSeason currentSeason, Integer numberOfAvailableSeasons, String lastUpdated) {
         super();
         this.id = id;
         this.area = area;
@@ -85,7 +88,7 @@ public class FootballSearchResponse {
         this.name = name;
     }
 
-    public String getCode() {
+    public Object getCode() {
         return code;
     }
 

@@ -3,7 +3,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.moringaschool.eplstats.ui.TeamsActivity">
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    tools:context="com.moringaschool.eplstats.ui.TeamsListActivity">
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/teamTextView"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="19dp"
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/teamTextView"
@@ -12,8 +26,8 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="24dp"
-        android:text="Teams available"
-        android:visibility="gone"/>
+        android:text="Competitions available"
+        android:visibility="gone" />
 
     <ListView
         android:layout_width="match_parent"
@@ -25,6 +39,16 @@
         tools:ignore="UnknownId"
         android:visibility="gone"/>
 
+    <TextView
+        android:id="@+id/errorTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="455dp"
+        android:layout_marginTop="380dp"
+        android:visibility="gone" />
+
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyle"
@@ -33,13 +57,6 @@
         android:layout_centerInParent="true" />
 
 
-    <TextView
-        android:id="@+id/errorTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_margin="16dp"
-        android:visibility="gone" />
 
 
 </RelativeLayout>

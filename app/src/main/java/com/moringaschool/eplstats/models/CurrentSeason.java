@@ -1,9 +1,12 @@
 
-package models;
+package com.moringaschool.eplstats.models;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import org.parceler.Parcel;
+
+@Parcel
 public class CurrentSeason {
 
     @SerializedName("id")
@@ -17,7 +20,7 @@ public class CurrentSeason {
     private String endDate;
     @SerializedName("currentMatchday")
     @Expose
-    private Integer currentMatchday;
+    private String currentMatchday;
 
     /**
      * No args constructor for use in serialization
@@ -33,7 +36,7 @@ public class CurrentSeason {
      * @param id
      * @param startDate
      */
-    public CurrentSeason(Integer id, String startDate, String endDate, Integer currentMatchday) {
+    public CurrentSeason(Integer id, String startDate, String endDate, String currentMatchday) {
         super();
         this.id = id;
         this.startDate = startDate;
@@ -65,11 +68,11 @@ public class CurrentSeason {
         this.endDate = endDate;
     }
 
-    public Integer getCurrentMatchday() {
+    public Object getCurrentMatchday() {
         return currentMatchday;
     }
 
-    public void setCurrentMatchday(Integer currentMatchday) {
+    public void setCurrentMatchday(String currentMatchday) {
         this.currentMatchday = currentMatchday;
     }
 
