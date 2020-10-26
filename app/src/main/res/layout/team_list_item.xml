@@ -22,7 +22,7 @@
             android:id="@+id/teamNameTextView"
             android:textSize="20dp"
             android:textStyle="bold"
-            android:text="Team Name"
+            android:text="Competition Name"
             android:textColor="@color/primary_dark"/>
 
 

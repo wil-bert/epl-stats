@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "34414676779",
+    "firebase_url": "https://leaguestats-ee952.firebaseio.com",
+    "project_id": "leaguestats-ee952",
+    "storage_bucket": "leaguestats-ee952.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:34414676779:android:c1446453d14aa0048a536e",
+        "android_client_info": {
+          "package_name": "com.moringaschool.eplstats"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "34414676779-nhan8qqn1qc8m4hppu177asqb10divpd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUY0gZn0dZNAWzWR4dZioa4ZKmSejsqZI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "34414676779-nhan8qqn1qc8m4hppu177asqb10divpd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -18,7 +18,7 @@
             android:paddingTop="55dp"
             android:textSize="50dp"
             android:background="@color/primary_dark"
-            android:text="Tottenham"/>
+            android:text="Premier League"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -37,7 +37,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                android:text="View Players"
+                android:text="Save league"
                 android:background="@color/primary_dark"/>
         </RelativeLayout>
     </LinearLayout>
