@@ -64,7 +64,6 @@ public class FirebaseCompetitionViewHolder extends RecyclerView.ViewHolder imple
 
             @Override
             public void onCancelled( DatabaseError error) {
-
             }
         });
 
