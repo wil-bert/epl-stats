@@ -23,8 +23,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @BindView(R.id.findTeamButton)
     Button mFindTeamButton;
-    @BindView(R.id.findLoginButton)
-    Button mFindLoginButton;
     @BindView(R.id.appNameTextView)
     TextView mTeamTextView;
     @BindView(R.id.savedCompetitionsButton) Button mSavedCompetitionsButton;
@@ -38,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         mFindTeamButton.setOnClickListener(this);
-        mFindLoginButton.setOnClickListener(this);
+
     }
 
     @Override
@@ -48,13 +46,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             String team = mFindTeamButton.getText().toString();
             intent.putExtra("team", team);
             startActivity(intent);
-
-
-        } else if (v == mFindLoginButton) {
-            Intent intent1 = new Intent(MainActivity.this, LoginActivity.class);
-            String login = mFindLoginButton.getText().toString();
-            intent1.putExtra("login", login);
-            startActivity(intent1);
 
         } else if (v == mSavedCompetitionsButton) {
             Intent intent = new Intent(MainActivity.this, SavedCompetitionActivity.class);
