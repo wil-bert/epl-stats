@@ -21,34 +21,21 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-//    private SharedPreferences mSharedPreferences;
-//    private SharedPreferences.Editor mEditor;
-
-    private DatabaseReference mSearchedCompetitionReference;
-
     @BindView(R.id.findTeamButton)
     Button mFindTeamButton;
     @BindView(R.id.findLoginButton)
     Button mFindLoginButton;
     @BindView(R.id.appNameTextView)
     TextView mTeamTextView;
+    @BindView(R.id.savedCompetitionsButton) Button mSavedCompetitionsButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-        mSearchedCompetitionReference = FirebaseDatabase
-                .getInstance()
-                .getReference()
-                .child(Constants.FIREBASE_CHILD_SEARCHED_COMPETITION);
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-
-
-//        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-//        mEditor = mSharedPreferences.edit();
 
         mFindTeamButton.setOnClickListener(this);
         mFindLoginButton.setOnClickListener(this);
@@ -68,17 +55,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             String login = mFindLoginButton.getText().toString();
             intent1.putExtra("login", login);
             startActivity(intent1);
+
+        } else if (v == mSavedCompetitionsButton) {
+            Intent intent = new Intent(MainActivity.this, SavedCompetitionActivity.class);
+            startActivity(intent);
         }
 
 
     }
-    public void savedCompetitionToFirebase(String competition) {
-        mSearchedCompetitionReference.push().setValue(competition);
-    }
 
-
-
-//    private void addToSharedpreferencess(String competition) {
-//        mEditor.putString(Constants.PREFERENCES_COMPETITION_KEY, competition).apply();
-//    }
 }

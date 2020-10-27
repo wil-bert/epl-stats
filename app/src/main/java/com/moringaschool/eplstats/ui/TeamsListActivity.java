@@ -1,20 +1,28 @@
 package com.moringaschool.eplstats.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.MenuItemCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.SearchView;
 import android.widget.TextView;
 
+import com.moringaschool.eplstats.Constants;
 import com.moringaschool.eplstats.adapters.TeamListAdapter;
 import com.moringaschool.eplstats.R;
 import com.moringaschool.eplstats.models.ChooseCompetition;
 import com.moringaschool.eplstats.models.Competition_;
+import com.moringaschool.eplstats.network.FootballApi;
 import com.moringaschool.eplstats.network.FootballClient;
 
 import org.jetbrains.annotations.NotNull;
@@ -31,6 +39,8 @@ import retrofit2.Response;
 
 public class TeamsListActivity extends AppCompatActivity {
     private SharedPreferences mSharedPreferences;
+    private SharedPreferences.Editor mEditor;
+    private String mRecentName;
 
     private static final String TAG = TeamsListActivity.class.getSimpleName();
     public List<Competition_> competitions;
@@ -45,7 +55,19 @@ public class TeamsListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_teams);
         ButterKnife.bind(this);
 
+        Intent intent = getIntent();
+        String competition = intent.getStringExtra("competition");
+
+        getCompetitions(competition);
+
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mRecentName = mSharedPreferences.getString(Constants.PREFERENCES_COMPETITION_KEY, null);
+
+        if (mRecentName != null) {
+            getCompetitions(mRecentName);
+        }
+
+
 
 
         Call<ChooseCompetition> call = FootballClient.getClient().getCompetitions();
@@ -75,12 +97,15 @@ public class TeamsListActivity extends AppCompatActivity {
 
             }
         });
+
+
+    }
+
+    private void getCompetitions(String competition) {
     }
 
 
-
-
-        private void showFailureMessage () {
+    private void showFailureMessage () {
             mError.setText("Something went wrong. Please check your Internet connection and try again later");
             mError.setVisibility(View.VISIBLE);
         }
@@ -94,6 +119,43 @@ public class TeamsListActivity extends AppCompatActivity {
         mRecyclerView.setVisibility(View.VISIBLE);
     }
 
+    private void addToSharedPreferences(String competition) {
+        mEditor.putString(Constants.PREFERENCES_COMPETITION_KEY, competition).apply();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_search, menu);
+        ButterKnife.bind(this);
+
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mEditor = mSharedPreferences.edit();
+
+        MenuItem menuItem = menu.findItem(R.id.action_search);
+        SearchView searchView = (SearchView) MenuItemCompat.getActionView(menuItem);
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                addToSharedPreferences(query);
+                getCompetitions(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return super.onOptionsItemSelected(item);
+    }
 
 
 }

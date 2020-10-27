@@ -15,20 +15,21 @@
 
     <TextView
         android:id="@+id/appNameTextView"
-        android:layout_width="250dp"
-        android:layout_height="60dp"
+        android:layout_width="387dp"
+        android:layout_height="199dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="41dp"
-        android:layout_marginEnd="78dp"
+        android:layout_marginTop="38dp"
+        android:layout_marginEnd="-17dp"
         android:fontFamily="@font/lemonada_bold"
-        android:text="EPL STATS"
+        android:text="LEAGUE STATS"
         android:textColor="@color/primary_text"
         android:textSize="40dp" />
 
     <Button
         android:id="@+id/findTeamButton"
+        android:layout_above="@+id/savedCompetitionsButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -47,5 +48,18 @@
         android:background="@color/primary_text"
         android:text="Login"
         android:textColor="@color/primary_light" />
+
+    <Button
+        android:id="@+id/savedCompetitionsButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="153dp"
+        android:background="@color/primary_text"
+        android:text="Saved Competition"
+        android:textColor="@color/primary_light" />
+
 
 </RelativeLayout>
