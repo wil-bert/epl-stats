@@ -11,10 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.moringaschool.eplstats.ui.TeamDetailActivity"></activity>
-        <activity android:name="com.moringaschool.eplstats.ui.LoginActivity" />
-        <activity android:name="com.moringaschool.eplstats.ui.TeamsListActivity" />
-        <activity android:name="com.moringaschool.eplstats.ui.MainActivity">
+        <activity android:name=".ui.SavedCompetitionActivity"></activity>
+        <activity android:name=".ui.TeamDetailActivity" />
+        <activity android:name=".ui.LoginActivity" />
+        <activity android:name=".ui.TeamsListActivity" />
+        <activity android:name=".ui.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.moringaschool.eplstats.ui.MainActivity" />
