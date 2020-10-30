@@ -36,7 +36,7 @@ public class FirebaseCompetitionViewHolder extends RecyclerView.ViewHolder imple
     }
 
     public void bindCompetition(Competition_ competition) {
-        TextView nameTextView = (TextView) mView.findViewById(R.id.teamNameTextView);
+        TextView nameTextView = (TextView) mView.findViewById(R.id.competitionName);
 
         nameTextView.setText(competition.getName());
     }

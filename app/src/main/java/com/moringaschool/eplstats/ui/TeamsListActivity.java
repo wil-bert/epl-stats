@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.SearchView;
 import android.widget.TextView;
 
@@ -43,9 +44,11 @@ public class TeamsListActivity extends AppCompatActivity {
     private String mRecentName;
 
     private static final String TAG = TeamsListActivity.class.getSimpleName();
-    public List<Competition_> competitions;
+    public List<Competition_> competition;
     @BindView(R.id.recyclerView) RecyclerView mRecyclerView;
     @BindView(R.id.errorTextView) TextView mError;
+    @BindView(R.id.progressBar)
+    ProgressBar mProgressBar;
     private TeamListAdapter mAdapter;
 
 
@@ -55,10 +58,8 @@ public class TeamsListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_teams);
         ButterKnife.bind(this);
 
-        Intent intent = getIntent();
-        String competition = intent.getStringExtra("competition");
-
-        getCompetitions(competition);
+        final Intent intent = getIntent();
+        String user = intent.getStringExtra("user");
 
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         mRecentName = mSharedPreferences.getString(Constants.PREFERENCES_COMPETITION_KEY, null);
@@ -68,20 +69,22 @@ public class TeamsListActivity extends AppCompatActivity {
         }
 
 
-
+        FootballApi client = FootballClient.getClient();
 
         Call<ChooseCompetition> call = FootballClient.getClient().getCompetitions();
         call.enqueue(new Callback<ChooseCompetition>() {
             @Override
             public void onResponse(Call<ChooseCompetition> call, Response<ChooseCompetition> response) {
                 if (response.isSuccessful()) {
-                    competitions = response.body().getCompetitions();
-                    mAdapter = new TeamListAdapter(TeamsListActivity.this, competitions);
+                    hideProgressBar();
+                    competition = response.body().getCompetitions();
+                    mAdapter = new TeamListAdapter(TeamsListActivity.this, competition);
                     mRecyclerView.setAdapter(mAdapter);
                     RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(TeamsListActivity.this);
                     mRecyclerView.setLayoutManager(layoutManager);
                     mRecyclerView.setHasFixedSize(true);
                     showSuccessfulMessage();
+                    Log.e(TAG, "check");
                 }
                 else {
                     showUnsuccessfulMessage();
@@ -89,10 +92,10 @@ public class TeamsListActivity extends AppCompatActivity {
 
             }
 
-
             @Override
             public void onFailure(Call<ChooseCompetition> call, Throwable t) {
                 Log.d(TAG, "Here is the problem", t);
+                hideProgressBar();
                 showFailureMessage();
 
             }
@@ -121,6 +124,11 @@ public class TeamsListActivity extends AppCompatActivity {
 
     private void addToSharedPreferences(String competition) {
         mEditor.putString(Constants.PREFERENCES_COMPETITION_KEY, competition).apply();
+    }
+
+    private void hideProgressBar() {
+        mProgressBar.setVisibility(View.GONE);
+
     }
 
     @Override

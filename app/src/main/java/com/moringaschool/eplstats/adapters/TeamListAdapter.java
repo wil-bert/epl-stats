@@ -18,7 +18,9 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import com.moringaschool.eplstats.models.ChooseCompetition;
 import com.moringaschool.eplstats.models.Competition_;
+import com.moringaschool.eplstats.ui.TeamDetailActivity;
 import com.moringaschool.eplstats.ui.TeamDetailFragment;
 
 public class TeamListAdapter extends RecyclerView.Adapter<TeamListAdapter.TeamViewHolder> {
@@ -30,10 +32,6 @@ public class TeamListAdapter extends RecyclerView.Adapter<TeamListAdapter.TeamVi
         mContext = mcontext;
         mCompetitions = competitions;
     }
-
-
-
-
 
     @Override
     public TeamViewHolder onCreateViewHolder( ViewGroup parent, int viewType) {
@@ -55,26 +53,34 @@ public class TeamListAdapter extends RecyclerView.Adapter<TeamListAdapter.TeamVi
 
 
     public class TeamViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-        @BindView(R.id.teamNameTextView)
+        @BindView(R.id.competitionName)
         TextView mNameTextView;
+
 
         public TeamViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+            mContext = itemView.getContext();
+            itemView.setOnClickListener(this);
 
         }
 
-        public void bindTeams(Competition_ competition_) {
-            mNameTextView.setText(competition_.getName());
+        public void bindTeams(Competition_ competition) {
+            mNameTextView.setText((CharSequence) competition.getName());
+//            mNameTextView.setText(competition_.getName());
+//            mArea.setText((CharSequence) competition_.getArea());
+//            mCurrentSeason.setText((CharSequence) competition_.getCurrentSeason());
+//            mLastUpdate.setText(competition_.getLastUpdated());
 
         }
 
         @Override
         public void onClick(View v){
             int itemPosition=  getLayoutPosition();
-            Intent intent = new Intent(String.valueOf(TeamDetailFragment.class));
+            Intent intent = new Intent(mContext, TeamDetailActivity.class);
             intent.putExtra("position", itemPosition);
             intent.putExtra("teams", Parcels.wrap(mCompetitions));
+            mContext.startActivity(intent);
         }
     }
 }

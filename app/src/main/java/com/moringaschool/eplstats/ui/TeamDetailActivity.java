@@ -11,6 +11,7 @@ import com.moringaschool.eplstats.R;
 import org.parceler.Parcels;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.moringaschool.eplstats.adapters.TeamPagerAdapter;
 import com.moringaschool.eplstats.models.Competition_;
@@ -22,7 +23,7 @@ public class TeamDetailActivity extends AppCompatActivity {
     @BindView(R.id.viewPager)
     ViewPager mViewPager;
     private TeamPagerAdapter adapterViewPager;
-    ArrayList<Competition_> mCompetitions = new ArrayList<>();
+    List<Competition_> mCompetitions;
 
 
     @Override

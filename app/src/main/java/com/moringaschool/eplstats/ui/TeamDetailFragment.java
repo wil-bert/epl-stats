@@ -25,11 +25,14 @@ import butterknife.ButterKnife;
  */
 public class TeamDetailFragment extends Fragment {
 
-    @BindView(R.id.teamNameTextView) TextView mNameLabel;
+    @BindView(R.id.competitionName) TextView mNameLabel;
+    @BindView(R.id.areaName) TextView mArea;
+    @BindView(R.id.currentSeason) TextView mCurrentSeason;
+    @BindView(R.id.lastUpdate) TextView mLastUpdate;
 
 
 
-    private ChooseCompetition mCompetition;
+    private Competition_ mCompetition;
 
     public TeamDetailFragment() {
         // Required empty public constructor
@@ -55,7 +58,10 @@ public class TeamDetailFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_team_detail, container, false);
         ButterKnife.bind(this, view);
 
-        mNameLabel.setText((CharSequence) mCompetition.getCompetitions());
+        mNameLabel.setText((CharSequence) mCompetition.getName());
+        mArea.setText((CharSequence) mCompetition.getArea());
+        mCurrentSeason.setText((CharSequence) mCompetition.getCurrentSeason());
+        mLastUpdate.setText(mCompetition.getLastUpdated());
 
         return view;
 

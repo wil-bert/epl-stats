@@ -13,18 +13,15 @@ import com.moringaschool.eplstats.ui.TeamDetailFragment;
 public  class TeamPagerAdapter extends FragmentPagerAdapter {
     private List<Competition_> mCompetitions;
 
-    public TeamPagerAdapter(FragmentManager fm, int behavior, List<Competition_> teams) {
+    public TeamPagerAdapter(FragmentManager fm, int behavior, List<Competition_> competition) {
         super(fm, behavior);
-        mCompetitions = teams;
+        mCompetitions = competition;
 
     }
 
-//    public TeamPagerAdapter(FragmentManager supportFragmentManager, ArrayList<Teams> mTeams) {
-//        super(supportFragmentManager);
-//    }
-
     @Override
     public int getCount() {
+
         return mCompetitions.size();
     }
 
