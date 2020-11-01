@@ -43,6 +43,7 @@ public class TeamsListActivity extends AppCompatActivity {
     private SharedPreferences.Editor mEditor;
     private String mRecentName;
 
+
     private static final String TAG = TeamsListActivity.class.getSimpleName();
     public List<Competition_> competition;
     @BindView(R.id.recyclerView) RecyclerView mRecyclerView;

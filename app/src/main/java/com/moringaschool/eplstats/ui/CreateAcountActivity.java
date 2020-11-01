@@ -94,7 +94,9 @@ public class CreateAcountActivity extends AppCompatActivity implements View.OnCl
                         if (task.isSuccessful()) {
                             Log.d(TAG, "Authentication successful");
                         }else {
-                            Toast.makeText(CreateAcountActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(CreateAcountActivity.this, "Authentication failed.",
+                                    Toast.LENGTH_SHORT).show();
+
                         }
                     }
                 });

@@ -21,7 +21,6 @@ public  class TeamPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-
         return mCompetitions.size();
     }
 

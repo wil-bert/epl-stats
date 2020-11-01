@@ -30,7 +30,6 @@ public class TeamDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_team_detail);
-
         ButterKnife.bind(this);
 
         mCompetitions = Parcels.unwrap(getIntent().getParcelableExtra("competition"));

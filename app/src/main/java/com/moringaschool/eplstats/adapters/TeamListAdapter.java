@@ -67,11 +67,6 @@ public class TeamListAdapter extends RecyclerView.Adapter<TeamListAdapter.TeamVi
 
         public void bindTeams(Competition_ competition) {
             mNameTextView.setText((CharSequence) competition.getName());
-//            mNameTextView.setText(competition_.getName());
-//            mArea.setText((CharSequence) competition_.getArea());
-//            mCurrentSeason.setText((CharSequence) competition_.getCurrentSeason());
-//            mLastUpdate.setText(competition_.getLastUpdated());
-
         }
 
         @Override

@@ -29,7 +29,6 @@
 
     <Button
         android:id="@+id/findTeamButton"
-        android:layout_above="@+id/savedCompetitionsButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -40,15 +39,15 @@
 
 
     <Button
-        android:id="@+id/savedCompetitionsButton"
+        android:id="@+id/login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginBottom="153dp"
+        android:layout_marginStart="-3dp"
+        android:layout_marginBottom="80dp"
         android:background="@color/primary_text"
-        android:text="Saved Competition"
+        android:text="Login"
         android:textColor="@color/primary_light" />
 
 
